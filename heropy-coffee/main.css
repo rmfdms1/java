@@ -1,0 +1,41 @@
+body {
+    color: red;
+    font-family: "Nanum Gothic", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #333;
+}
+/* HEADER */
+header {
+    background-color: royalblue;
+}
+header .inner {
+    background-color: orange;
+    width: 1100px;
+    height: 120px;
+    margin: 0 auto;
+}
+header .logo {
+    height: 75px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+header .sub-menu {
+
+}
+header .sub-menu {
+
+}
+header .sub-menu li {
+
+}
+header .sub-menu li a {
+
+}
+header .sub-menu .search {
+
+}
