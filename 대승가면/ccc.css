@@ -1,0 +1,109 @@
+/* 기본 스타일 설정 */
+body, html {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth; /* 부드러운 스크롤 */
+    height: 100%; /* 전체 페이지 높이를 100%로 설정 */
+    overflow-x: hidden; /* 가로 스크롤을 숨김 */
+  }
+  
+  /* 페이지 스타일 */
+  .page {
+    height: 100vh; /* 화면 높이만큼 채우기 */
+    width: 100%;
+  }
+  
+  /* 페이지 1: 이미지가 화면 절반만 차지하도록 */
+  .page1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000; /* 배경색을 검은색으로 */
+  }
+  
+  .page1::before {
+    content: "";
+    background: url('가면가면.jfif') no-repeat center center; /* 이미지 배경 설정 */
+    background-size: contain; /* 이미지 크기를 자르지 않고 화면에 맞게 축소 */
+    background-position: center; /* 이미지를 중앙에 위치 */
+    width: 100%; /* 화면 너비 전체 */
+    height: 50vh; /* 화면 높이의 절반 */
+    display: block; /* 블록 요소로 설정 */
+  }
+  
+  /* 페이지 2: 배경을 검은색으로 설정 */
+  .page2 {
+    background-color: #000; /* 배경을 검은색으로 설정 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* 자식 요소들이 절대적으로 배치되도록 하기 위함 */
+    height: 100vh; /* 페이지 높이 설정 */
+  }
+  
+  /* 편지봉투 이미지 스타일 */
+  .envelope-img {
+    max-width: 100%;  /* 이미지 너비를 화면 크기의 60%로 설정 */
+    max-height: 100%; /* 이미지 높이를 화면 크기의 60%로 설정 */
+    object-fit: contain; /* 이미지 비율 유지 */
+  }
+  
+  /* 빨갱이 이미지 스타일 */
+  .red-image {
+    max-width: 60%;  /* 이미지 너비를 화면 크기의 60%로 설정 */
+    max-height: 60%; /* 이미지 높이를 화면 크기의 60%로 설정 */
+    object-fit: contain; /* 이미지 비율 유지 */
+    position: absolute; /* 절대 위치 */
+    cursor: pointer; /* 클릭 가능하게 설정 */
+  }
+  
+  /* 노란 편지지 스타일 */
+  .yellow-letter {
+    width: 30%; /* 편지봉투와 동일한 가로 크기 */
+    height: 80vh; /* 화면의 80% 높이 */
+    background-color: #FFEB3B; /* 노란색 배경 */
+    position: absolute;
+    bottom: -100%; /* 화면 아래에서 시작 */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0; /* 처음에는 보이지 않음 */
+    transition: all 2s ease-in-out; /* 애니메이션 설정 */
+    padding: 20px; /* 편지지 안에 여백 추가 */
+    box-sizing: border-box; /* 페딩이 크기 계산에 포함되도록 설정 */
+    font-family: Arial, sans-serif; /* 기본 폰트 설정 */
+  }
+  
+  .yellow-letter.animate {
+    bottom: 10%; /* 화면 중앙에 위치 */
+    opacity: 1; /* 편지지가 보이도록 설정 */
+  }
+  
+  /* 오른쪽 위에 ㅇㅇㅇ 글씨 스타일 */
+  #letter-text {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    z-index: 10; /* 다른 요소들 위로 보이도록 설정 */
+  }
+  
+  /* 초대 링크 스타일 */
+  .invitation-link {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+    text-decoration: none;
+    background-color: #FFEB3B; /* 노란색 배경 */
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .invitation-link:hover {
+    background-color: #FF9800; /* 마우스 올렸을 때 색상 변경 */
+  }
