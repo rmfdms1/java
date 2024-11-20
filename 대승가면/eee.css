@@ -50,7 +50,7 @@ body, html {
     bottom: 50px; /* 화면 아래에서 50px 위에 고정 */
     left: 0; /* 시작 위치를 왼쪽 끝으로 설정 */
     transform: scale(0.5); /* 이미지 크기를 절반으로 조정 */
-    animation: moveRight 20s linear infinite; /* 20초 동안 오른쪽으로 이동, 반복 */
+    animation: moveRight 12s linear infinite; /* 20초 동안 오른쪽으로 이동, 반복 */
 }
 
 /* 애니메이션 정의 */

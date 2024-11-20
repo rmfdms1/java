@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 textElement.style.cursor = "default"; // 기본 커서
                 textElement.onclick = null; // 클릭 비활성화
             }
-        }, 5000);
+        }, 3000);
     } else {
         console.error("Error: '.changing-text' 요소를 찾을 수 없습니다.");
     }
