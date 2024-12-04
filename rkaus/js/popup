@@ -1,0 +1,136 @@
+<!-- 팝업1 -->
+<div id="popup1" class="popup">
+    <a href="https://www.youtube.com/watch?v=pppnjzKmSAs" target="_blank">
+        <img src="탈춤이.jpg" alt="Popup 1 Image">
+    </a>
+    <div class="popup-footer">
+        <label>
+            <input type="checkbox" id="dont-show-today1"> 하루 동안 보지 않기
+        </label>
+        <button class="close-popup" id="close-popup1">X</button>
+    </div>
+</div>
+
+<!-- 팝업2 -->
+<div id="popup2" class="popup">
+    <a href="https://www.lottegrs.com/kor/business/lotteria.jsp" target="_blank">
+        <img src="굉2.jpg" alt="Popup 2 Image">
+    </a>
+    <div class="popup-footer">
+        <label>
+            <input type="checkbox" id="dont-show-today2"> 하루 동안 보지 않기
+        </label>
+        <button class="close-popup" id="close-popup2">X</button>
+    </div>
+</div>
+
+<!-- 팝업3 -->
+<div id="popup3" class="popup">
+    <a href="aaa.html" target="_blank">
+        <img src="광고2.jpg" alt="Popup 3 Image">
+    </a>
+    <div class="popup-footer">
+        <label>
+            <input type="checkbox" id="dont-show-today3"> 하루 동안 보지 않기
+        </label>
+        <button class="close-popup" id="close-popup3">X</button>
+    </div>
+</div>
+CSS:
+css
+코드 복사
+/* 팝업 공통 스타일 */
+.popup {
+    display: none; /* 기본적으로 팝업 숨김 */
+    position: fixed;
+    width: 350px; /* 팝업 크기 조정 */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 1000;
+}
+
+.popup img {
+    width: 100%; /* 이미지 크기 조정 */
+    height: auto;
+    border-radius: 10px;
+}
+
+/* 팝업 위치 */
+#popup1 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#popup2 {
+    top: 20px;
+    left: 20px;
+}
+
+#popup3 {
+    top: 20px;
+    right: 20px;
+}
+
+/* 팝업 푸터 스타일 */
+.popup-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.popup-footer label {
+    font-size: 14px;
+}
+
+.close-popup {
+    font-size: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: black;
+}
+
+.close-popup:hover {
+    color: red;
+}
+JavaScript:
+javascript
+코드 복사
+document.addEventListener('DOMContentLoaded', () => {
+    // 팝업 요소 및 데이터
+    const popups = [
+        { id: 'popup1', checkboxId: 'dont-show-today1', closeId: 'close-popup1' },
+        { id: 'popup2', checkboxId: 'dont-show-today2', closeId: 'close-popup2' },
+        { id: 'popup3', checkboxId: 'dont-show-today3', closeId: 'close-popup3' }
+    ];
+
+    const now = new Date();
+
+    popups.forEach(({ id, checkboxId, closeId }) => {
+        const popup = document.getElementById(id);
+        const checkbox = document.getElementById(checkboxId);
+        const closeButton = document.getElementById(closeId);
+
+        // 로컬스토리지 확인 후 팝업 표시
+        const hiddenUntil = localStorage.getItem(`${id}HiddenUntil`);
+        if (!hiddenUntil || new Date(hiddenUntil) < now) {
+            popup.style.display = 'block';
+        }
+
+        // 닫기 버튼 동작
+        closeButton.addEventListener('click', () => {
+            if (checkbox.checked) {
+                const tomorrow = new Date();
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                localStorage.setItem(`${id}HiddenUntil`, tomorrow.toISOString());
+            }
+            popup.style.display = 'none';
+        });
+    });
+});
